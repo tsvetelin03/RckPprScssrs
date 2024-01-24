@@ -1,0 +1,26 @@
+from random import randint
+answer = "Yes"
+while answer == "Yes":
+    player = input("Choose [Rock], [Paper] or [Scissors] >>> ")
+    if player != "Rock" and player != "Paper" and player != "Scissors":
+        raise SystemExit("Invalid choice!\n Try again :(")
+
+    moves = ["Rock", "Paper", "Scissors"]
+    computer = randint(-3, -1)
+    if player == "Rock": player = -3
+    elif player == "Paper": player = -2
+    elif player == "Scissors": player = -1
+    print(f"The computer chose {moves[computer]}")
+    if player == computer:
+        print("Draw!")
+    elif player == -3 and computer == -1:
+        print("You win!")
+    elif computer == -3 and player == -1:
+        print("You lost!")
+    elif player > computer:
+        print("You win!")
+    else: print("You lost!")
+
+    answer = input("Want to play again? [Yes] [No] > ")
+    if answer != "Yes" and answer != "No":
+        raise SystemExit("Invalid choice :(")
